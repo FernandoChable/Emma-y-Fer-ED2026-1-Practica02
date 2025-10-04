@@ -31,4 +31,4 @@ En esta sección deben eliminar esta línea de texto, borrar la leyenda "Integra
 
 ## Comentarios
 
-Recuerden que opcionalmente pueden agregar un comentario (ver los lineamientos de entrega). Si es el caso, borren esta linea y dejen su comentario.
+- Duda sobre la diferenciaSimetrica: Tengo una duda sobre la función de la diferencia simétrica, y es que a mí se me ocurrió usar unión e intersección de conjuntos, pero no sé si haya una manera más sencilla de hacerlo :/

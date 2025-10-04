@@ -82,6 +82,9 @@ myFilter d ((a,b):xs)
     | d (a,b)  = (a,b) : myFilter d xs
     | otherwise = myFilter d xs
 
+
+--FUNCIONES AUXILIARES
+
 -- Calcula la longitud de cualquier lista
 myLength :: [a] -> Int
 myLength [] = 0

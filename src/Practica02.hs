@@ -1,5 +1,7 @@
 module Practica02 where
 
+import Data.List (union, intersect, (\\))
+
 --BINARIOS
 data Bit = O | I 
         deriving (Show, Eq)
@@ -8,23 +10,36 @@ type Binario = [Bit]
 
 --BINARIOS
 
+bitToInt :: Bit -> Int
+bitToInt O = 0
+bitToInt I = 1
+
+intToBit :: Int -> Bit
+intToBit 0 = O
+intToBit 1 = I
+
 toDecimal :: Binario -> Int
-toDecimal = undefined
+toDecimal [] = 0
+toDecimal (x:xs) = (bitToInt x * 2^(length xs)) + toDecimal xs
 
 toBin :: Int -> Binario
-toBin = undefined
+toBin 0 = []
+toBin x = toBin (x `div` 2) ++ [intToBit (x `mod` 2)]
 
 suma :: Binario -> Binario -> Binario
-suma = undefined
+suma [] [] = []
+suma [] y = y
+suma x [] = x
+suma x y = toBin ( toDecimal x + toDecimal y)
 
 --LISTAS
 
-palindromo :: [a] -> Bool
-palindromo = undefined
+palindromo :: Eq a => [a] -> Bool
+palindromo xs = xs == reverse xs 
 
 --Funcion principal que calcula la diferencia simetrica (Aquellos elementos que esten en la union pero no en la interseccion)
-diferenciaSimetrica :: [a] -> [a] -> [a]
-diferenciaSimetrica = undefined
+diferenciaSimetrica :: Eq a => [a] -> [a] -> [a]
+diferenciaSimetrica xs ys = (xs `union` ys) \\ (xs `intersect` ys)
 
 --Conjunto potencia
 conjuntoPotencia :: [a] -> [[a]]
